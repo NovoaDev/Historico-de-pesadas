@@ -1,0 +1,16 @@
+{
+  "QualifiedValues": [
+    {
+      "Kind": "default.cds_crd23_historyofheavy_forms",
+      "Namespace": "History of Heavy (Formularios)",
+      "Values": {}
+    },
+    {
+      "Kind": "default.cds_crd23_hard_forms",
+      "Namespace": "75Hard (Formularios)",
+      "Values": {
+        "Información": "05919a40-c816-4b23-ab1f-d7887bb1a150"
+      }
+    }
+  ]
+}

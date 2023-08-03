@@ -1,0 +1,625 @@
+Main As screen:
+    Fill: =RGBA(184, 83, 187, 1)
+
+    Rectangle1 As rectangle:
+        Height: =532
+        Width: =784
+        X: =548
+        Y: =108
+        ZIndex: =1
+
+    "HistoryGallery As gallery.'BrowseLayout_Vertical_TwoTextVariant_ver4.0'":
+        BorderColor: =RGBA(0, 0, 0, 1)
+        BorderThickness: =1
+        DelayItemLoading: =true
+        Fill: =RGBA(81, 69, 81, 1)
+        Height: =149
+        Items: =Sort('History of Heavy',Date,SortOrder.Descending)
+        Layout: =Layout.Vertical
+        LoadingSpinner: =LoadingSpinner.Data
+        TemplatePadding: =0
+        TemplateSize: =74
+        Width: =483
+        X: =31
+        Y: =450
+        ZIndex: =2
+
+        HistoryTitle As label:
+            Font: =Font.'Dancing Script'
+            FontWeight: =FontWeight.Normal
+            Height: =Self.Size * 1.8
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =15
+            Text: =Text(ThisItem.Date, "dd/mm/yyyy", "es-ES")
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Parent.TemplateWidth - 340
+            X: =18
+            Y: =9
+            ZIndex: =1
+
+        HistorySubtitle As label:
+            Font: =Font.'Dancing Script'
+            Height: =Self.Size * 1.8
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =15
+            Text: =ThisItem.Weight
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Parent.TemplateWidth - 104
+            X: =18
+            Y: =44
+            ZIndex: =2
+
+        HistorySeparator As rectangle:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            Fill: =RGBA(0, 0, 0, 1)
+            Height: =1
+            OnSelect: =Select(Parent)
+            Width: =Parent.TemplateWidth
+            Y: =Parent.TemplateHeight - 1
+            ZIndex: =4
+
+        HistoryNextArrow As icon.ChevronRight:
+            AccessibleLabel: =Self.Tooltip
+            BorderColor: =RGBA(81, 69, 81, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            Fill: =RGBA(81, 69, 81, 1)
+            Height: =47
+            Icon: =Icon.ChevronRight
+            OnSelect: =Select(Parent)
+            PaddingBottom: =10
+            PaddingLeft: =10
+            PaddingRight: =10
+            PaddingTop: =10
+            TabIndex: =0
+            Tooltip: ="Ver los detalles del elemento"
+            Width: =60
+            X: =409
+            Y: =9
+            ZIndex: =5
+
+        HistoryTitle_1 As label:
+            Font: =Font.'Dancing Script'
+            FontWeight: =FontWeight.Normal
+            Height: =Self.Size * 1.8
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =15
+            Text: =ThisItem.BodyType
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Parent.TemplateWidth - 340
+            X: =161
+            Y: =9
+            ZIndex: =6
+
+    MainBorder As rectangle:
+        BorderColor: =RGBA(0, 0, 0, 1)
+        BorderThickness: =1
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =768
+        Width: =1366
+        ZIndex: =3
+
+    HistoryTittle As label:
+        Font: =Font.'Dancing Script'
+        Height: =60
+        Size: =32
+        Text: ="Historico"
+        Width: =371
+        X: =31
+        Y: =389
+        ZIndex: =4
+
+    HistoryINewItem As icon.Add:
+        AccessibleLabel: =Self.Tooltip
+        Color: =RGBA(0, 0, 0, 1)
+        DisplayMode: =If(DataSourceInfo([@'History of Heavy'], DataSourceInfo.CreatePermission), DisplayMode.Edit, DisplayMode.Disabled)
+        Height: =83
+        Icon: =Icon.Add
+        OnSelect: =NewForm(HistoryEditForm);Navigate(HistoryEditScreen, ScreenTransition.None)
+        PaddingBottom: =24
+        PaddingLeft: =24
+        PaddingRight: =24
+        PaddingTop: =24
+        TabIndex: =0
+        Tooltip: ="Crear elemento"
+        Width: =91
+        X: =171
+        Y: =378
+        ZIndex: =5
+
+    Tittle As label:
+        Font: =Font.'Dancing Script'
+        Height: =60
+        Size: =40
+        Text: ="Historico de pesadas"
+        Width: =458
+        X: =454
+        Y: =12
+        ZIndex: =6
+
+    HistoryViewer1 As formViewer:
+        DataSource: ='History of Heavy'
+        Height: =82
+        Item: =Last('History of Heavy')
+        NumberOfColumns: =12
+        Width: =1366
+        Y: =676
+        ZIndex: =7
+
+        BodyScore_DataCard2 As typedDataCard.textualViewCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="crd23_bodyscore"
+            Default: =ThisItem.BodyScore
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@'History of Heavy'],DataSourceInfo.DisplayName,"crd23_bodyscore")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =40
+            Required: =false
+            Width: =190
+            X: =0
+            Y: =0
+            ZIndex: =1
+
+            DataCardKey13 As label:
+                AutoHeight: =true
+                Font: =Font.'Dancing Script'
+                Height: =34
+                PaddingBottom: =0
+                Size: =15
+                Text: ="Puntuación corporal"
+                Width: =Parent.Width - 10
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue6 As label:
+                AutoHeight: =true
+                DisplayMode: =Parent.DisplayMode
+                Font: =Font.'Dancing Script'
+                Height: =27
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =15
+                Text: =Parent.Default
+                Width: =Parent.Width - 60
+                X: =40
+                Y: =DataCardKey13.Y + DataCardKey13.Height + 5
+                ZIndex: =2
+
+        Weight_DataCard2 As typedDataCard.textualViewCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="crd23_weight"
+            Default: =ThisItem.Weight
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@'History of Heavy'],DataSourceInfo.DisplayName,"crd23_weight")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =40
+            Required: =false
+            Width: =120
+            X: =2
+            Y: =0
+            ZIndex: =1
+
+            DataCardKey14 As label:
+                AutoHeight: =true
+                Font: =Font.'Dancing Script'
+                Height: =34
+                PaddingBottom: =0
+                Size: =15
+                Text: ="Peso (Kg)"
+                Width: =Parent.Width - 10
+                Wrap: =false
+                X: =10
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue13 As label:
+                AutoHeight: =true
+                DisplayMode: =Parent.DisplayMode
+                Font: =Font.'Dancing Script'
+                Height: =27
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =15
+                Text: =Parent.Default
+                Width: =Parent.Width - 60
+                X: =20
+                Y: =DataCardKey14.Y + DataCardKey14.Height + 5
+                ZIndex: =2
+
+        BodyType_DataCard3 As typedDataCard.textualViewCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="crd23_bodytype"
+            Default: =ThisItem.BodyType
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@'History of Heavy'],DataSourceInfo.DisplayName,"crd23_bodytype")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =73
+            Required: =false
+            Width: =120
+            X: =3
+            Y: =0
+            ZIndex: =1
+
+            DataCardKey23 As label:
+                AutoHeight: =true
+                Font: =Font.'Dancing Script'
+                Height: =34
+                PaddingBottom: =0
+                Size: =15
+                Text: ="Cuerpo"
+                Width: =Parent.Width - 10
+                Wrap: =false
+                X: =10
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue22 As label:
+                AutoHeight: =true
+                DisplayMode: =Parent.DisplayMode
+                Font: =Font.'Dancing Script'
+                Height: =27
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =15
+                Text: =Parent.Default
+                Width: =Parent.Width - 20
+                X: =20
+                Y: =DataCardKey23.Y + DataCardKey23.Height + 5
+                ZIndex: =2
+
+        IMC_DataCard2 As typedDataCard.textualViewCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="crd23_imc"
+            Default: =ThisItem.IMC
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@'History of Heavy'],DataSourceInfo.DisplayName,"crd23_imc")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =40
+            Required: =false
+            Width: =90
+            X: =4
+            Y: =0
+            ZIndex: =1
+
+            DataCardKey15 As label:
+                AutoHeight: =true
+                Font: =Font.'Dancing Script'
+                Height: =34
+                PaddingBottom: =0
+                Size: =15
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 10   
+                Wrap: =false
+                X: =10
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue14 As label:
+                AutoHeight: =true
+                DisplayMode: =Parent.DisplayMode
+                Font: =Font.'Dancing Script'
+                Height: =27
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =15
+                Text: =Parent.Default
+                Width: =Parent.Width - 20
+                X: =20
+                Y: =DataCardKey15.Y + DataCardKey15.Height + 5
+                ZIndex: =2
+
+        BodyFat_DataCard2 As typedDataCard.textualViewCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="crd23_bodyfat"
+            Default: =ThisItem.BodyFat
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@'History of Heavy'],DataSourceInfo.DisplayName,"crd23_bodyfat")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =40
+            Required: =false
+            Width: =170
+            X: =5
+            Y: =0
+            ZIndex: =1
+
+            DataCardKey16 As label:
+                AutoHeight: =true
+                Font: =Font.'Dancing Script'
+                Height: =34
+                PaddingBottom: =0
+                Size: =15
+                Text: ="Grasa corporal (%)"
+                Width: =Parent.Width -10
+                Wrap: =false
+                X: =10
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue15 As label:
+                AutoHeight: =true
+                DisplayMode: =Parent.DisplayMode
+                Font: =Font.'Dancing Script'
+                Height: =27
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =15
+                Text: =Parent.Default
+                Width: |
+                    =Parent.Width - 20
+                X: =20
+                Y: =DataCardKey16.Y + DataCardKey16.Height + 5
+                ZIndex: =2
+
+        Water_DataCard2 As typedDataCard.textualViewCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="crd23_water"
+            Default: =ThisItem.Water
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@'History of Heavy'],DataSourceInfo.DisplayName,"crd23_water")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =40
+            Required: =false
+            Width: =100
+            X: =6
+            Y: =0
+            ZIndex: =1
+
+            DataCardKey18 As label:
+                AutoHeight: =true
+                Font: =Font.'Dancing Script'
+                Height: =34
+                PaddingBottom: =0
+                Size: =15
+                Text: ="Agua (%)"
+                Width: |
+                    =Parent.Width - 10
+                Wrap: =false
+                X: =10
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue17 As label:
+                AutoHeight: =true
+                DisplayMode: =Parent.DisplayMode
+                Font: =Font.'Dancing Script'
+                Height: =27
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =15
+                Text: =Parent.Default
+                Width: |
+                    =Parent.Width - 20
+                X: =20
+                Y: =DataCardKey18.Y + DataCardKey18.Height + 5
+                ZIndex: =2
+
+        "'BasalMetabolism(kcal)_DataCard2' As typedDataCard.textualViewCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="crd23_basalmetabolismkcal"
+            Default: =ThisItem.'BasalMetabolism(kcal)'
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@'History of Heavy'],DataSourceInfo.DisplayName,"crd23_basalmetabolismkcal")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =40
+            Required: =false
+            Width: =170
+            X: =7
+            Y: =0
+            ZIndex: =1
+
+            DataCardKey22 As label:
+                AutoHeight: =true
+                Font: =Font.'Dancing Script'
+                Height: =34
+                PaddingBottom: =0
+                Size: =15
+                Text: ="Metabolismo (kcal)"
+                Width: |
+                    =Parent.Width - 10
+                Wrap: =false
+                X: =10
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue21 As label:
+                AutoHeight: =true
+                DisplayMode: =Parent.DisplayMode
+                Font: =Font.'Dancing Script'
+                Height: =27
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =15
+                Text: =Parent.Default
+                Width: |
+                    =Parent.Width - 20
+                X: =20
+                Y: =DataCardKey22.Y + DataCardKey22.Height + 5
+                ZIndex: =2
+
+        VisceralFat_DataCard2 As typedDataCard.textualViewCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="crd23_visceralfat"
+            Default: =ThisItem.VisceralFat
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@'History of Heavy'],DataSourceInfo.DisplayName,"crd23_visceralfat")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =40
+            Required: =false
+            Width: =140
+            X: =8
+            Y: =0
+            ZIndex: =1
+
+            DataCardKey17 As label:
+                AutoHeight: =true
+                Font: =Font.'Dancing Script'
+                Height: =34
+                PaddingBottom: =0
+                Size: =15
+                Text: ="Grasa visceral"
+                Width: |
+                    =Parent.Width - 10
+                Wrap: =false
+                X: =10
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue16 As label:
+                AutoHeight: =true
+                DisplayMode: =Parent.DisplayMode
+                Font: =Font.'Dancing Script'
+                Height: =27
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =15
+                Text: =Parent.Default
+                Width: |
+                    =Parent.Width - 20
+                X: =20
+                Y: =DataCardKey17.Y + DataCardKey17.Height + 5
+                ZIndex: =2
+
+        "'Muscle(kg)_DataCard2' As typedDataCard.textualViewCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="crd23_musclekg"
+            Default: =ThisItem.'Muscle(kg)'
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@'History of Heavy'],DataSourceInfo.DisplayName,"crd23_musclekg")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =40
+            Required: =false
+            Width: =130
+            X: =9
+            Y: =0
+            ZIndex: =1
+
+            DataCardKey20 As label:
+                AutoHeight: =true
+                Font: =Font.'Dancing Script'
+                Height: =34
+                PaddingBottom: =0
+                Size: =15
+                Text: ="Músculo (Kg)"
+                Width: |
+                    =Parent.Width - 10
+                Wrap: =false
+                X: =10
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue19 As label:
+                AutoHeight: =true
+                DisplayMode: =Parent.DisplayMode
+                Font: =Font.'Dancing Script'
+                Height: =27
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =15
+                Text: =Parent.Default
+                Width: |
+                    =Parent.Width - 20
+                X: =20
+                Y: =DataCardKey20.Y + DataCardKey20.Height + 5
+                ZIndex: =2
+
+        "'Proteins(%)_DataCard2' As typedDataCard.textualViewCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="crd23_proteins"
+            Default: =ThisItem.'Proteins(%)'
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@'History of Heavy'],DataSourceInfo.DisplayName,"crd23_proteins")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =40
+            Required: =false
+            Width: =120
+            X: =10
+            Y: =0
+            ZIndex: =1
+
+            DataCardKey19 As label:
+                AutoHeight: =true
+                Font: =Font.'Dancing Script'
+                Height: =34
+                PaddingBottom: =0
+                Size: =15
+                Text: ="Proteína (%)"
+                Width: |
+                    =Parent.Width - 10
+                Wrap: =false
+                X: =10
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue18 As label:
+                AutoHeight: =true
+                DisplayMode: =Parent.DisplayMode
+                Font: =Font.'Dancing Script'
+                Height: =27
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =15
+                Text: =Parent.Default
+                Width: |
+                    =Parent.Width - 20
+                X: =20
+                Y: =DataCardKey19.Y + DataCardKey19.Height + 5
+                ZIndex: =2
+
+    HistoryTittle_1 As label:
+        Font: =Font.'Dancing Script'
+        Height: =60
+        Size: =32
+        Text: ="Actual"
+        Width: =108
+        X: =31
+        Y: =627
+        ZIndex: =8
+
+    PowerBI1 As powerbi:
+        DashboardId: ="a3f43767-d5f1-49ed-bebf-ea394a0c0661"
+        Height: =532
+        TileUrl: |-
+            ="https://app.powerbi.com/embed?dashboardId=a3f43767-d5f1-49ed-bebf-ea394a0c0661&tileId=267d1804-c5b1-408d-81e6-a273eae0fb5d&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly9XQUJJLVdFU1QtRVVST1BFLUUtUFJJTUFSWS1yZWRpcmVjdC5hbmFseXNpcy53aW5kb3dzLm5ldCIsImVtYmVkRmVhdHVyZXMiOnsibW9kZXJuRW1iZWQiOmZhbHNlfX0%3d"
+        Width: =784
+        WorkspaceId: ="__my-workspace"
+        X: =548
+        Y: =108
+        ZIndex: =9
+
+    Rectangle2 As rectangle:
+        Height: =220
+        Width: =220
+        X: =31
+        Y: =151
+        ZIndex: =10
+
+    Rectangle2_1 As rectangle:
+        Height: =220
+        Width: =220
+        X: =295
+        Y: =151
+        ZIndex: =11
+

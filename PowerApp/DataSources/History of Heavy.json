@@ -1,0 +1,101 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "crd23_historyofheavies",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "crd23_historyofheavy",
+    "MaxGetRowsCount": 500,
+    "Name": "History of Heavy",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Propietario",
+      "crd23_basalmetabolismkcal": "BasalMetabolism(kcal)",
+      "crd23_bodyfat": "BodyFat",
+      "crd23_bodyscore": "BodyScore",
+      "crd23_bodytype": "BodyType",
+      "crd23_bonemass": "BoneMass",
+      "crd23_date": "Entry",
+      "crd23_datew": "Date",
+      "crd23_historyofheavy_AsyncOperations": "Trabajos del sistema",
+      "crd23_historyofheavy_BulkDeleteFailures": "Errores de eliminación en masa",
+      "crd23_historyofheavy_MailboxTrackingFolders": "Carpetas de seguimiento automático del buzón",
+      "crd23_historyofheavy_PrincipalObjectAttributeAccesses": "Uso compartido de campos",
+      "crd23_historyofheavy_ProcessSession": "Sesiones de proceso",
+      "crd23_historyofheavy_SyncErrors": "Errores de sincronización",
+      "crd23_historyofheavyid": "History of Heavy",
+      "crd23_imc": "IMC",
+      "crd23_musclekg": "Muscle(kg)",
+      "crd23_proteins": "Proteins(%)",
+      "crd23_visceralfat": "VisceralFat",
+      "crd23_water": "Water",
+      "crd23_weight": "Weight",
+      "createdby": "Autor",
+      "createdon": "Fecha de creación",
+      "createdonbehalfby": "Autor (delegado)",
+      "importsequencenumber": "Número de secuencia de importación",
+      "modifiedby": "Modificado por",
+      "modifiedon": "Fecha de modificación",
+      "modifiedonbehalfby": "Modificado por (delegado)",
+      "overriddencreatedon": "Fecha de creación del registro",
+      "owningbusinessunit": "Unidad de negocio propietaria",
+      "owningteam": "Equipo propietario",
+      "owninguser": "Usuario propietario",
+      "statecode": "Estado",
+      "statuscode": "Razón para el estado",
+      "timezoneruleversionnumber": "Número de versión de regla de zona horaria",
+      "utcconversiontimezonecode": "Código de zona horaria de conversión UTC",
+      "versionnumber": "Número de versión"
+    },
+    "PreferredName": "History of Heavy",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "History of Heavy (Vistas)",
+    "Name": "_crd23_historyofheavy_views",
+    "RelatedEntityName": "History of Heavy",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {}
+  },
+  {
+    "DisplayName": "Estado (History of Heavy)",
+    "Name": "crd23_historyofheavy_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Activo",
+      "1": "Inactivo"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "History of Heavy"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "History of Heavy",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Razón para el estado (History of Heavy)",
+    "Name": "crd23_historyofheavy_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Activo",
+      "2": "Inactivo"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "History of Heavy"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "History of Heavy",
+    "Type": "OptionSetInfo"
+  }
+]
