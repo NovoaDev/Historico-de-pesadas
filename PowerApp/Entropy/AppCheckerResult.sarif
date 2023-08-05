@@ -2992,17 +2992,17 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "HistoryViewScreen.itemToView"
+                  "fullyQualifiedName": "HistoryViewScreen.itemToEdit"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "HistoryViewScreen.itemToView",
+                  "fullyQualifiedName": "HistoryViewScreen.itemToEdit",
                   "relativeAddress": 0
                 }
               },
               "properties": {
-                "member": "itemToView",
+                "member": "itemToEdit",
                 "module": "HistoryViewScreen",
                 "type": "HistoryViewScreen"
               }

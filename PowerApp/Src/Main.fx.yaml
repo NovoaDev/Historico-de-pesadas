@@ -85,7 +85,9 @@ Main As screen:
                 =Navigate(
                     HistoryViewScreen,
                     ScreenTransition.None,
-                    {itemToView: HistoryGallery.Selected})
+                    { itemToEdit: HistoryGallery.Selected });
+                
+                ViewForm(HistoryEditForm_1)
             PaddingBottom: =10
             PaddingLeft: =10
             PaddingRight: =10
